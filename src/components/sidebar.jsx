@@ -11,7 +11,7 @@ import Typography from "@mui/material/Typography";
 import EqualizerOutlinedIcon from '@mui/icons-material/EqualizerOutlined';
 import CurrencyExchangeOutlinedIcon from '@mui/icons-material/CurrencyExchangeOutlined';
 import ArticleOutlinedIcon from '@mui/icons-material/ArticleOutlined';
-
+import {Link} from "react-router-dom";
 
 const Sidebar = ({drawerWidth}) => {
     return (<>
@@ -29,38 +29,48 @@ const Sidebar = ({drawerWidth}) => {
                 variant="permanent"
                 anchor="left"
             >
-                <List >
-                    <ListItem  sx={{my:2}}>
-                        <img style={{width:"70px"}} src={appLogo} alt="app logo"/>
-                        <Typography component='h1' variant='h6'  sx={{ml:2,  }}>Crypto app</Typography>
+                <List>
+                    <ListItem sx={{my: 2}}>
+                        <Link to='/home'><img style={{width: "70px"}} src={appLogo} alt="app logo"/></Link>
+                        <Typography component='h1' variant='h6' sx={{ml: 2,}}>Crypto app</Typography>
                     </ListItem>
 
+                    <Link to="/home">
+                        <ListItem button>
+                            <ListItemIcon>
+                                <HomeOutlinedIcon/>
+                            </ListItemIcon>
+                            <ListItemText primary={"Home"}/>
+                        </ListItem>
+                    </Link>
 
+                    <Link to="/cryptocurrencies">
+                        <ListItem button>
+                            <ListItemIcon>
+                                <EqualizerOutlinedIcon/>
+                            </ListItemIcon>
+                            <ListItemText primary={"Cryptocurrencies"}/>
+                        </ListItem>
+                    </Link>
 
-                    <ListItem button >
-                        <ListItemIcon >
-                           <HomeOutlinedIcon/>
-                        </ListItemIcon>
-                        <ListItemText primary={"Home"}/>
-                    </ListItem>
-                    <ListItem button >
-                        <ListItemIcon >
-                           <EqualizerOutlinedIcon/>
-                        </ListItemIcon>
-                        <ListItemText primary={"Cryptocurrencies"}/>
-                    </ListItem>
-                    <ListItem button >
-                        <ListItemIcon >
-                           <CurrencyExchangeOutlinedIcon />
-                        </ListItemIcon>
-                        <ListItemText primary={"Exchanges"}/>
-                    </ListItem>
-                    <ListItem button >
-                        <ListItemIcon >
-                           <ArticleOutlinedIcon/>
-                        </ListItemIcon>
-                        <ListItemText primary={"News"}/>
-                    </ListItem>
+                    <Link to="/exchanges">
+                        <ListItem button>
+                            <ListItemIcon>
+                                <CurrencyExchangeOutlinedIcon/>
+                            </ListItemIcon>
+                            {/*<ListItemText primary={"Exchanges"}/>*/}
+                            <ListItemText primary='Exchanges'> </ListItemText>
+                        </ListItem>
+                    </Link>
+
+                    <Link to="/news">
+                        <ListItem button>
+                            <ListItemIcon>
+                                <ArticleOutlinedIcon/>
+                            </ListItemIcon>
+                            <ListItemText primary={"News"}/>
+                        </ListItem>
+                    </Link>
 
                 </List>
 
