@@ -9,6 +9,12 @@ import {
     Route,
 } from "react-router-dom";
 import Main from "./components/main";
+import './index.css'
+import Cryptocurrencies from "./components/Cryptocurrencies";
+import Exchanges from "./components/Exchanges";
+import News from "./components/News";
+import CryptoDetails from "./components/CryptoDetails"; 
+import Typography from "@mui/material/Typography";
 
 
 const getDesignTokens = (mode) => ((mode === 'dark') ? {
@@ -39,29 +45,35 @@ const getDesignTokens = (mode) => ((mode === 'dark') ? {
 function MyApp() {
     const theme = useTheme();
     const drawerWidth = 270;
-    return (
-        <Box
-            sx={{
-                width: '100%',
-                alignItems: 'center',
-                justifyContent: 'center',
-                bgcolor: 'background.default',
-                color: 'text.primary',
-                borderRadius: 1,
-                p: 3,
-                pl: `${drawerWidth}px`
-            }}
-        >
-            <CssBaseline/>
-            <Sidebar drawerWidth={drawerWidth}/>
-            <Routes>
-                <Route path='/home' element={<Main/>}/>
-                <Route path='/cryptocurrencies' element={<Main/>}/>
-                <Route path='/exchanges' element={<Main/>}/>
-                <Route path='/news' element={<Main/>}/>
-            </Routes>
+    return (<>
+            <Box
+                sx={{
+                    width: '100%',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    bgcolor: 'background.default',
+                    color: 'text.primary',
+                    borderRadius: 1,
+                    py: 3,
+                    pl: `${drawerWidth}px`
+                }}
+            >
+                <CssBaseline/>
+                <Sidebar drawerWidth={drawerWidth}/>
+                <Routes>
+                    <Route path='/home' element={<Main/>}/>
+                    <Route path='/cryptocurrencies' element={<Cryptocurrencies/>}/>
+                    <Route path='/exchanges' element={<Exchanges/>}/>
+                    <Route path='/crypto/:coinId' element={<CryptoDetails/>}/>
+                    <Route path='/news' element={<News/>}/>
+                </Routes>
+                <Box sx={{display: 'flex', justifyContent: "center",flexDirection:"column",alignItems:"center"}} component={'footer'}>
+                    <Typography component='h3'> Crypto app  </Typography>
+                    <Typography> All rights reserved </Typography>
+                </Box>
+            </Box>
 
-        </Box>
+        </>
     );
 }
 

@@ -18,10 +18,10 @@ const Sidebar = ({drawerWidth}) => {
             <CssBaseline/>
             <Drawer
                 sx={{
-                    width: drawerWidth,
+                    width:  `${drawerWidth}px`,
                     flexShrink: 0,
                     '& .MuiDrawer-paper': {
-                        width: drawerWidth,
+                        width: `${drawerWidth}px`,
                         boxSizing: 'border-box',
                     },
 
@@ -30,17 +30,18 @@ const Sidebar = ({drawerWidth}) => {
                 anchor="left"
             >
                 <List>
-                    <ListItem sx={{my: 2}}>
-                        <Link to='/home'><img style={{width: "70px"}} src={appLogo} alt="app logo"/></Link>
-                        <Typography component='h1' variant='h6' sx={{ml: 2,}}>Crypto app</Typography>
-                    </ListItem>
-
+                    <Link to='/home'>
+                        <ListItem sx={{my: 2}}>
+                            <img style={{width: "70px"}} src={appLogo} alt="app logo"/>
+                            <Typography component='h1' variant='h6' sx={{ml: 2, }}>Crypto app</Typography>
+                        </ListItem>
+                    </Link>
                     <Link to="/home">
                         <ListItem button>
                             <ListItemIcon>
                                 <HomeOutlinedIcon/>
                             </ListItemIcon>
-                            <ListItemText primary={"Home"}/>
+                            <ListItemText   primary={"Home"}/>
                         </ListItem>
                     </Link>
 
@@ -49,7 +50,7 @@ const Sidebar = ({drawerWidth}) => {
                             <ListItemIcon>
                                 <EqualizerOutlinedIcon/>
                             </ListItemIcon>
-                            <ListItemText primary={"Cryptocurrencies"}/>
+                            <ListItemText  primary={"Cryptocurrencies"}/>
                         </ListItem>
                     </Link>
 
