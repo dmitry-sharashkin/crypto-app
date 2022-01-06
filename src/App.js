@@ -6,9 +6,9 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Sidebar from "./components/sidebar";
 import {
     Routes,
-    Route,
+    Route, Link,
 } from "react-router-dom";
-import Main from "./components/main";
+import Home from "./components/Home";
 import './index.css'
 import Cryptocurrencies from "./components/Cryptocurrencies";
 import Exchanges from "./components/Exchanges";
@@ -34,10 +34,9 @@ const getDesignTokens = (mode) => ((mode === 'dark') ? {
         }),
         text: {
             ...(mode === 'dark') && {
-                primary: 'white',
-                secondary: amber[800],
-            }
-            ,
+                secondary: grey[300]
+
+            },
         },
     },
 } : null);
@@ -61,15 +60,17 @@ function MyApp() {
                 <CssBaseline/>
                 <Sidebar drawerWidth={drawerWidth}/>
                 <Routes>
-                    <Route path='/home' element={<Main/>}/>
-                    <Route path='/cryptocurrencies' element={<Cryptocurrencies/>}/>
-                    <Route path='/exchanges' element={<Exchanges/>}/>
-                    <Route path='/crypto/:coinId' element={<CryptoDetails/>}/>
-                    <Route path='/news' element={<News/>}/>
+                    <Route path='crypto-app/home' element={<Home/>}/>
+                    <Route path='crypto-app/' element={<Home/>}/>
+                    <Route path='crypto-app/cryptocurrencies' element={<Cryptocurrencies/>}/>
+                    <Route path='crypto-app/exchanges' element={<Exchanges/>}/>
+                    <Route path='crypto-app/crypto/:coinId' element={<CryptoDetails/>}/>
+                    <Route path='crypto-app/news' element={<News/>}/>
                 </Routes>
                 <Box sx={{display: 'flex', justifyContent: "center",flexDirection:"column",alignItems:"center"}} component={'footer'}>
                     <Typography component='h3'> Crypto app  </Typography>
                     <Typography> All rights reserved </Typography>
+                    <Typography sx={{color:"primary",mt:2}}> <Link to="crypto-app/home">Home</Link> <Link to="crypto-app/news">News</Link> <Link to="crypto-app/exchanges">Exchanges</Link></Typography>
                 </Box>
             </Box>
 

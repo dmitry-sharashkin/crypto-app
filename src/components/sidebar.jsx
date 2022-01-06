@@ -30,13 +30,13 @@ const Sidebar = ({drawerWidth}) => {
                 anchor="left"
             >
                 <List>
-                    <Link to='/home'>
+                    <Link to='crypto-app/home'>
                         <ListItem sx={{my: 2}}>
                             <img style={{width: "70px"}} src={appLogo} alt="app logo"/>
                             <Typography component='h1' variant='h6' sx={{ml: 2, }}>Crypto app</Typography>
                         </ListItem>
                     </Link>
-                    <Link to="/home">
+                    <Link to="crypto-app/home">
                         <ListItem button>
                             <ListItemIcon>
                                 <HomeOutlinedIcon/>
@@ -45,7 +45,7 @@ const Sidebar = ({drawerWidth}) => {
                         </ListItem>
                     </Link>
 
-                    <Link to="/cryptocurrencies">
+                    <Link to="crypto-app/cryptocurrencies">
                         <ListItem button>
                             <ListItemIcon>
                                 <EqualizerOutlinedIcon/>
@@ -54,17 +54,16 @@ const Sidebar = ({drawerWidth}) => {
                         </ListItem>
                     </Link>
 
-                    <Link to="/exchanges">
+                    <Link to="crypto-app/exchanges">
                         <ListItem button>
                             <ListItemIcon>
                                 <CurrencyExchangeOutlinedIcon/>
                             </ListItemIcon>
-                            {/*<ListItemText primary={"Exchanges"}/>*/}
                             <ListItemText primary='Exchanges'> </ListItemText>
                         </ListItem>
                     </Link>
 
-                    <Link to="/news">
+                    <Link to="crypto-app/news">
                         <ListItem button>
                             <ListItemIcon>
                                 <ArticleOutlinedIcon/>
