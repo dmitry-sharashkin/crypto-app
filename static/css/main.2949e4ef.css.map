@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.2949e4ef.css","mappings":"AAAA,EAEI,aAAc,CADd,oBAEJ,CACA,QACI,UACJ","sources":["index.css"],"sourcesContent":["a{\r\n    text-decoration: none;\r\n    color: inherit;\r\n}\r\na:hover{\r\n    color: gold;\r\n}"],"names":[],"sourceRoot":""}
