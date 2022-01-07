@@ -13,11 +13,15 @@ import './index.css'
 import Cryptocurrencies from "./components/Cryptocurrencies";
 import Exchanges from "./components/Exchanges";
 import News from "./components/News";
-import CryptoDetails from "./components/CryptoDetails"; 
+import CryptoDetails from "./components/CryptoDetails";
 import Typography from "@mui/material/Typography";
+
+import {useEffect} from "react";
+import axios from "axios";
 
 
 const getDesignTokens = (mode) => ((mode === 'dark') ? {
+
     palette: {
         mode,
         primary: {
@@ -42,6 +46,25 @@ const getDesignTokens = (mode) => ((mode === 'dark') ? {
 } : null);
 
 function MyApp() {
+    useEffect(()=>{
+
+        const options = {
+            method: 'GET',
+            url: 'https://coinranking1.p.rapidapi.com/stats',
+            params: {referenceCurrencyUuid: 'yhjMzLPhuIDl'},
+            headers: {
+                'x-rapidapi-host': 'coinranking1.p.rapidapi.com',
+                'x-rapidapi-key': 'd76db3113cmsh73d161ebd6cba55p131247jsnbf8eeefa6b0d'
+            }
+        };
+
+        axios.request(options).then(function (response) {
+            console.log(response.data);
+        }).catch(function (error) {
+            console.error(error);
+        });
+
+    },[])
     const theme = useTheme();
     const drawerWidth = 270;
     return (<>
