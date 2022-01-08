@@ -2,16 +2,13 @@ import React, {useEffect} from 'react';
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import {useDispatch, useSelector} from "react-redux";
-import {change} from "../redux/globalStatsSlice";
+import {useGetCryptosQuery} from '../services/cryptoApi'
 
 const Home = () => {
-    const stats = useSelector((state) => state.stats)
-    const dispatch = useDispatch()
-    useEffect(() => {
-        dispatch(change())
-    },[])
-    console.log(stats)
+
+    const {data, isFetching} = useGetCryptosQuery()
+    console.log(data)
+
     return (
         <Box
             component="main"
@@ -23,26 +20,26 @@ const Home = () => {
             <Grid columns={10} sx={{mt: 1}} container spacing={2}>
                 <Grid item xs={5} md={2}>
                     <Typography variant="caption" gutterBottom sx={{color: 'text.secondary'}}>Total Coins</Typography>
-                    <Typography sx={{fontSize: 20}}>{stats.totalCoins}</Typography>
+                    <Typography sx={{fontSize: 20}}>afs</Typography>
                 </Grid>
                 <Grid item xs={5} md={2}>
                     <Typography variant="caption" gutterBottom sx={{color: 'text.secondary'}}>Total 24th
                         Volume</Typography>
-                    <Typography sx={{fontSize: 20}}>{stats.total24hVolume}</Typography>
+                    <Typography sx={{fontSize: 20}}>123</Typography>
                 </Grid>
                 <Grid item xs={5} md={2}>
                     <Typography variant="caption" gutterBottom sx={{color: 'text.secondary'}}>Total
                         Exchanges</Typography>
-                    <Typography sx={{fontSize: 20}}>{stats.totalExchanges}</Typography>
+                    <Typography sx={{fontSize: 20}}>324</Typography>
                 </Grid>
                 <Grid item xs={5} md={2}>
                     <Typography variant="caption" gutterBottom sx={{color: 'text.secondary'}}>Total
                         MarketCap</Typography>
-                    <Typography sx={{fontSize: 20}}>{stats.totalMarketCap}</Typography>
+                    <Typography sx={{fontSize: 20}}>12343</Typography>
                 </Grid>
                 <Grid item xs={5} md={2}>
                     <Typography variant="caption" gutterBottom sx={{color: 'text.secondary'}}>Total Markets</Typography>
-                    <Typography sx={{fontSize: 20}}>{stats.totalMarkets}</Typography>
+                    <Typography sx={{fontSize: 20}}>4234323</Typography>
                 </Grid>
             </Grid>
 

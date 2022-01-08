@@ -30,13 +30,13 @@ const Sidebar = ({drawerWidth}) => {
                 anchor="left"
             >
                 <List>
-                    <Link to='crypto-app/home'>
+                    <Link to='crypto-app'>
                         <ListItem sx={{my: 2}}>
                             <img style={{width: "70px"}} src={appLogo} alt="app logo"/>
                             <Typography component='h1' variant='h6' sx={{ml: 2, }}>Crypto app</Typography>
                         </ListItem>
                     </Link>
-                    <Link to="crypto-app/home">
+                    <Link to="crypto-app">
                         <ListItem button>
                             <ListItemIcon>
                                 <HomeOutlinedIcon/>

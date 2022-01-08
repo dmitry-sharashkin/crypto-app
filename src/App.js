@@ -4,10 +4,7 @@ import {ThemeProvider, useTheme, createTheme} from '@mui/material/styles';
 import {amber, grey, indigo} from '@mui/material/colors';
 import CssBaseline from "@mui/material/CssBaseline";
 import Sidebar from "./components/sidebar";
-import {
-    Routes,
-    Route, Link,
-} from "react-router-dom";
+
 import Home from "./components/Home";
 import './index.css'
 import Cryptocurrencies from "./components/Cryptocurrencies";
@@ -18,7 +15,8 @@ import Typography from "@mui/material/Typography";
 
 import {useEffect} from "react";
 import axios from "axios";
-
+import {Route, Routes} from "react-router";
+import {Link} from "react-router-dom";
 
 const getDesignTokens = (mode) => ((mode === 'dark') ? {
 
@@ -46,25 +44,25 @@ const getDesignTokens = (mode) => ((mode === 'dark') ? {
 } : null);
 
 function MyApp() {
-    useEffect(()=>{
-
-        const options = {
-            method: 'GET',
-            url: 'https://coinranking1.p.rapidapi.com/stats',
-            params: {referenceCurrencyUuid: 'yhjMzLPhuIDl'},
-            headers: {
-                'x-rapidapi-host': 'coinranking1.p.rapidapi.com',
-                'x-rapidapi-key': 'd76db3113cmsh73d161ebd6cba55p131247jsnbf8eeefa6b0d'
-            }
-        };
-
-        axios.request(options).then(function (response) {
-            console.log(response.data);
-        }).catch(function (error) {
-            console.error(error);
-        });
-
-    },[])
+    // useEffect(()=>{
+    //
+    //     const options = {
+    //         method: 'GET',
+    //         url: 'https://coinranking1.p.rapidapi.com/stats',
+    //         params: {referenceCurrencyUuid: 'yhjMzLPhuIDl'},
+    //         headers: {
+    //             'x-rapidapi-host': 'coinranking1.p.rapidapi.com',
+    //             'x-rapidapi-key': 'd76db3113cmsh73d161ebd6cba55p131247jsnbf8eeefa6b0d'
+    //         }
+    //     };
+    //
+    //     axios.request(options).then(function (response) {
+    //         console.log(response.data);
+    //     }).catch(function (error) {
+    //         console.error(error);
+    //     });
+    //
+    // },[])
     const theme = useTheme();
     const drawerWidth = 270;
     return (<>
@@ -83,8 +81,9 @@ function MyApp() {
                 <CssBaseline/>
                 <Sidebar drawerWidth={drawerWidth}/>
                 <Routes>
+
                     <Route path='crypto-app/home' element={<Home/>}/>
-                    <Route path='crypto-app/' element={<Home/>}/>
+                    <Route exact path='crypto-app/' element={<Home/>}/>
                     <Route path='crypto-app/cryptocurrencies' element={<Cryptocurrencies/>}/>
                     <Route path='crypto-app/exchanges' element={<Exchanges/>}/>
                     <Route path='crypto-app/crypto/:coinId' element={<CryptoDetails/>}/>
