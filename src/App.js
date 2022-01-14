@@ -4,17 +4,13 @@ import {ThemeProvider, useTheme, createTheme} from '@mui/material/styles';
 import {amber, grey, indigo} from '@mui/material/colors';
 import CssBaseline from "@mui/material/CssBaseline";
 import Sidebar from "./components/sidebar";
-
-import Home from "./components/Home";
+import Home from "./components/home/Home";
 import './index.css'
 import Cryptocurrencies from "./components/Cryptocurrencies";
 import Exchanges from "./components/Exchanges";
 import News from "./components/News";
 import CryptoDetails from "./components/CryptoDetails";
 import Typography from "@mui/material/Typography";
-
-import {useEffect} from "react";
-import axios from "axios";
 import {Route, Routes} from "react-router";
 import {Link} from "react-router-dom";
 
@@ -44,25 +40,6 @@ const getDesignTokens = (mode) => ((mode === 'dark') ? {
 } : null);
 
 function MyApp() {
-    // useEffect(()=>{
-    //
-    //     const options = {
-    //         method: 'GET',
-    //         url: 'https://coinranking1.p.rapidapi.com/stats',
-    //         params: {referenceCurrencyUuid: 'yhjMzLPhuIDl'},
-    //         headers: {
-    //             'x-rapidapi-host': 'coinranking1.p.rapidapi.com',
-    //             'x-rapidapi-key': 'd76db3113cmsh73d161ebd6cba55p131247jsnbf8eeefa6b0d'
-    //         }
-    //     };
-    //
-    //     axios.request(options).then(function (response) {
-    //         console.log(response.data);
-    //     }).catch(function (error) {
-    //         console.error(error);
-    //     });
-    //
-    // },[])
     const theme = useTheme();
     const drawerWidth = 270;
     return (<>
@@ -81,7 +58,6 @@ function MyApp() {
                 <CssBaseline/>
                 <Sidebar drawerWidth={drawerWidth}/>
                 <Routes>
-
                     <Route path='crypto-app/home' element={<Home/>}/>
                     <Route exact path='crypto-app/' element={<Home/>}/>
                     <Route path='crypto-app/cryptocurrencies' element={<Cryptocurrencies/>}/>
@@ -89,10 +65,12 @@ function MyApp() {
                     <Route path='crypto-app/crypto/:coinId' element={<CryptoDetails/>}/>
                     <Route path='crypto-app/news' element={<News/>}/>
                 </Routes>
-                <Box sx={{display: 'flex', justifyContent: "center",flexDirection:"column",alignItems:"center"}} component={'footer'}>
-                    <Typography component='h3'> Crypto app  </Typography>
+                <Box sx={{display: 'flex', justifyContent: "center", flexDirection: "column", alignItems: "center"}}
+                     component={'footer'}>
+                    <Typography component='h3'> Crypto app </Typography>
                     <Typography> All rights reserved </Typography>
-                    <Typography sx={{color:"primary",mt:2}}> <Link to="crypto-app/home">Home</Link> <Link to="crypto-app/news">News</Link> <Link to="crypto-app/exchanges">Exchanges</Link></Typography>
+                    <Typography sx={{color: "primary", mt: 2}}> <Link to="crypto-app/home">Home</Link> <Link
+                        to="crypto-app/news">News</Link> <Link to="crypto-app/exchanges">Exchanges</Link></Typography>
                 </Box>
             </Box>
 
