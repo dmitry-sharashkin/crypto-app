@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import {ThemeProvider, useTheme, createTheme} from '@mui/material/styles';
 import {amber, grey, indigo} from '@mui/material/colors';
 import CssBaseline from "@mui/material/CssBaseline";
-import Sidebar from "./components/sidebar";
+import Sidebar from "./components/Sidebar";
 import Home from "./components/home/Home";
 import './index.css'
 import Cryptocurrencies from "./components/Cryptocurrencies";
@@ -26,8 +26,8 @@ const getDesignTokens = (mode) => ((mode === 'dark') ? {
         },
         ...(mode === 'dark' && {
             background: {
-                default: "#264462",
-                paper: "#001E3C",
+                default: "#151B24",
+                paper: "#1B222D",
             },
         }),
         // text: {
