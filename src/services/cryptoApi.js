@@ -21,7 +21,7 @@ export const cryptoApi = createApi({
         }),
     }),
 })
-//
+
 // export const pokemonApi = createApi({
 //     reducerPath: 'pokemonApi',
 //     baseQuery: fetchBaseQuery({ baseUrl: 'https://pokeapi.co/api/v2/' }),

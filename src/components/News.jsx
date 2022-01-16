@@ -9,8 +9,8 @@ const News = () => {
 
     return (
         <div>
-            {data && data?.content.map((article) => {
-                return <article>
+            {data && data?.content.map((article, index) => {
+                return <article key={`${article.title}_${index}`}>
                     <h3>{article.title}</h3>
                     <Box>
                         <img src={article.image} alt="img"/>
