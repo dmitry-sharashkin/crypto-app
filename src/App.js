@@ -9,10 +9,11 @@ import './index.css'
 import Cryptocurrencies from "./components/Cryptocurrencies";
 import Exchanges from "./components/Exchanges";
 import News from "./components/News";
-import CryptoDetails from "./components/CryptoDetails";
+import CompanyProfile from "./components/CompanyProfile";
 import Typography from "@mui/material/Typography";
 import {Route, Routes} from "react-router";
 import {Link} from "react-router-dom";
+import axios from "axios";
 
 const getDesignTokens = (mode) => ((mode === 'dark') ? {
 
@@ -40,6 +41,8 @@ const getDesignTokens = (mode) => ((mode === 'dark') ? {
 } : null);
 
 function MyApp() {
+    // const market = axios.get("https://financialmodelingprep.com/api/v3/stock/list?apikey=4d1255154b11183450dca74fb6df030a").then(response => response.data)
+    // console.log(market)
     const theme = useTheme();
     const drawerWidth = 270;
     return (<>
@@ -60,9 +63,10 @@ function MyApp() {
                 <Routes>
                     <Route path='crypto-app/home' element={<Home/>}/>
                     <Route exact path='crypto-app/' element={<Home/>}/>
+                    <Route exact path='crypto-app/profile' element={<CompanyProfile/>}/>
                     <Route path='crypto-app/cryptocurrencies' element={<Cryptocurrencies/>}/>
                     <Route path='crypto-app/exchanges' element={<Exchanges/>}/>
-                    <Route path='crypto-app/crypto/:coinId' element={<CryptoDetails/>}/>
+                    <Route path='crypto-app/crypto/:coinId' element={<CompanyProfile/>}/>
                     <Route path='crypto-app/news' element={<News/>}/>
                 </Routes>
                 <Box sx={{display: 'flex', justifyContent: "center", flexDirection: "column", alignItems: "center"}}

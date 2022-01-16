@@ -1,23 +1,23 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 
-const cryptoApiHeaders = {
-    'x-rapidapi-host': 'coinranking1.p.rapidapi.com',
-    'x-rapidapi-key': 'c4cb59fad1mshbf9a6aec398f84bp10882ejsnf417ab1af47d'
-}
 
-const baseUrl = 'https://coinranking1.p.rapidapi.com/'
-
-const createRequest = (url) => ({url, headers: cryptoApiHeaders})
+const baseUrl = "https://financialmodelingprep.com/api/v3/"
 
 export const cryptoApi = createApi({
     reducerPath: 'cryptoApi',
     baseQuery: fetchBaseQuery({baseUrl: baseUrl}),
     endpoints: (builder) => ({
-        getCryptos: builder.query({
-            query: () => createRequest('stats'),
+        getShares: builder.query({
+            query: () => 'stock/list?apikey=4d1255154b11183450dca74fb6df030a',
         }),
-        getCoins: builder.query({
-            query: () => createRequest('coins')
+        getNews: builder.query({
+            query: () => 'fmp/articles?page=0&size=5&apikey=4d1255154b11183450dca74fb6df030a',
+        }),
+        getStats: builder.query({
+            query: () => 'sectors-performance?apikey=4d1255154b11183450dca74fb6df030a',
+        }),
+        getProfile: builder.query({
+            query: (ticker) => `profile/${ticker}?apikey=4d1255154b11183450dca74fb6df030a`,
         }),
     }),
 })
@@ -33,4 +33,4 @@ export const cryptoApi = createApi({
 // })
 
 
-export const {useGetCryptosQuery, useGetCoinsQuery} = cryptoApi;
+export const {useGetSharesQuery, useGetNewsQuery, useGetStatsQuery, useGetProfileQuery} = cryptoApi;

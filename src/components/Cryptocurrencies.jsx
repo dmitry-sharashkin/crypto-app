@@ -1,12 +1,18 @@
 import React, {useEffect} from 'react';
-import {useGetCoinsQuery} from "../services/cryptoApi";
+import {useGetSharesQuery} from "../services/cryptoApi";
 
 const Cryptocurrencies = () => {
 
+    const {data, isFetching} = useGetSharesQuery()
+    console.log(data)
 
     return (
         <div>
-            Cryptocurrencies
+            {data?.map((obj, index) => {
+                if (index <= 11){
+                    return <div key={obj.symbol}>{obj.name} { obj.symbol} </div>
+                }
+            })}
         </div>
     );
 };
