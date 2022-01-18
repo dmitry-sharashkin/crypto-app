@@ -3,13 +3,13 @@ import Box from '@mui/material/Box';
 import {ThemeProvider, useTheme, createTheme} from '@mui/material/styles';
 import {amber, grey, indigo} from '@mui/material/colors';
 import CssBaseline from "@mui/material/CssBaseline";
-import Sidebar from "./components/Sidebar";
+import Sidebar from "./components/sidebar/Sidebar";
 import Home from "./components/home/Home";
 import './index.css'
-import Cryptocurrencies from "./components/Cryptocurrencies";
+import Stocks from "./components/stocks/Stocks";
 import Exchanges from "./components/Exchanges";
-import News from "./components/News";
-import CompanyProfile from "./components/CompanyProfile";
+import News from "./components/news/News";
+import CompanyProfile from "./components/conpanyProfile/CompanyProfile";
 import Typography from "@mui/material/Typography";
 import {Route, Routes} from "react-router";
 import {Link} from "react-router-dom";
@@ -69,7 +69,7 @@ function MyApp() {
                         <Route path='crypto-app/home' element={<Home/>}/>
                         <Route exact path='crypto-app/' element={<Home/>}/>
                         <Route exact path='crypto-app/profile' element={<CompanyProfile/>}/>
-                        <Route path='crypto-app/cryptocurrencies' element={<Cryptocurrencies/>}/>
+                        <Route path='crypto-app/cryptocurrencies' element={<Stocks/>}/>
                         <Route path='crypto-app/exchanges' element={<Exchanges/>}/>
                         <Route path='crypto-app/crypto/:coinId' element={<CompanyProfile/>}/>
                         <Route path='crypto-app/news' element={<News/>}/>

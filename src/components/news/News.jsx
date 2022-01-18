@@ -1,15 +1,14 @@
 import React from 'react';
-import {useGetNewsQuery} from "../services/cryptoApi";
+import {useGetNewsQuery} from "../../services/cryptoApi";
 import Box from "@mui/material/Box";
 
 const News = () => {
-    const {data, isFetching} = useGetNewsQuery()
-    console.log(data)
+    const {data,error, isLoading} = useGetNewsQuery()
 
 
     return (
         <div>
-            {data && data?.content.map((article, index) => {
+            {error?'Error':isLoading ? 'loading...' : data?.content.map((article, index) => {
                 return <article key={`${article.title}_${index}`}>
                     <h3>{article.title}</h3>
                     <Box>

@@ -6,7 +6,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import HomeOutlinedIcon from '@mui/icons-material/Home';
-import appLogo from '../assets/cryptocurrency.png'
+import appLogo from '../../assets/cryptocurrency.png'
 import Typography from "@mui/material/Typography";
 import EqualizerOutlinedIcon from '@mui/icons-material/EqualizerOutlined';
 import CurrencyExchangeOutlinedIcon from '@mui/icons-material/CurrencyExchangeOutlined';
