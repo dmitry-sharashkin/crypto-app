@@ -30,6 +30,12 @@ const getDesignTokens = (mode) => ((mode === 'dark') ? {
                 paper: "#1B222D",
             },
         }),
+        secondary: {
+            ...grey,
+            ...(mode === 'dark' && {
+                main: grey[400],
+            }),
+        },
         // text: {
         //     ...(mode === 'dark') && {
         //         secondary: grey[300]

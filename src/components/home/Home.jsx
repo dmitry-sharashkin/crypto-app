@@ -22,10 +22,11 @@ const Home = () => {
                     Stock Market Sectors Performance
                 </Typography>
 
+                {/*debug MAP error*/}
+
                 {error?'Error':isLoading ? 'loading...' : <Grid columns={10} sx={{mt: 1}} container spacing={2}>
-                    {(data) ? data.map((stats, index) => <Stats key={`${stats.sector}_${index}`} sector={stats.sector}
+                    {data?.map((stats, index) => <Stats key={`${stats.sector}_${index}`} sector={stats.sector}
                                                                 changesPercentage={stats.changesPercentage}/>)
-                        : null
                     }
                 </Grid>}
             </Box>

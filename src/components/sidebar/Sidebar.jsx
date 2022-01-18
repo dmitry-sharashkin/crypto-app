@@ -50,7 +50,7 @@ const Sidebar = ({drawerWidth}) => {
                             <ListItemIcon>
                                 <EqualizerOutlinedIcon/>
                             </ListItemIcon>
-                            <ListItemText  primary={"Cryptocurrencies"}/>
+                            <ListItemText  primary={"Stocks "}/>
                         </ListItem>
                     </Link>
 
